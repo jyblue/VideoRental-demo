@@ -8,10 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
-import javax.persistence.criteria.Join;
-
 public class GoldenMaster {
-
 	private String GoldenMasterFile = "./goldenmaster/goldenmater.txt";
 	
 	private String simulatedInput = "1\n" // List customer
@@ -48,7 +45,12 @@ public class GoldenMaster {
 		redirectInput();
 		ByteArrayOutputStream ostream = redirectOutput();
 		
-		CmdUI ui = new CmdUI();
+//		Repository repository = new RepositoryDBImpl();
+		Repository repository = new RepositoryMemImpl();
+		
+		new SampleGenerator(repository).generateSamples();
+		
+		CmdUI ui = new CmdUI(repository);
 		ui.start();
 		
 		return ostream.toString();
