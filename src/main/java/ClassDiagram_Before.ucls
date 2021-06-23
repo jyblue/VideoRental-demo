@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="video.rental.demo.Customer" project="VideoRental-demo" 
-    file="/VideoRental-demo/src/main/java/video/rental/demo/Customer.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="video.rental.demo.domain.Customer" project="VideoRental-demo" 
+    file="/VideoRental-demo/src/main/java/video/rental/demo/domain/Customer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="154" y="343"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="video.rental.demo.Video" project="VideoRental-demo" 
-    file="/VideoRental-demo/src/main/java/video/rental/demo/Video.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="video.rental.demo.domain.Video" project="VideoRental-demo" 
+    file="/VideoRental-demo/src/main/java/video/rental/demo/domain/Video.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="674" y="331"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,17 +19,18 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="video.rental.demo.Rental" project="VideoRental-demo" 
-    file="/VideoRental-demo/src/main/java/video/rental/demo/Rental.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="378" y="252"/>    
+  <class id="3" language="java" name="video.rental.demo.domain.Rental" project="VideoRental-demo" 
+    file="/VideoRental-demo/src/main/java/video/rental/demo/domain/Rental.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="380" y="276"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="video.rental.demo.CmdUI" project="VideoRental-demo" 
-    file="/VideoRental-demo/src/main/java/video/rental/demo/CmdUI.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="video.rental.demo.presentation.CmdUI" project="VideoRental-demo" 
+    file="/VideoRental-demo/src/main/java/video/rental/demo/presentation/CmdUI.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="371" y="98"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -62,19 +63,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <dependency id="13">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="14">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="15">    
     <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="16">    
-    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

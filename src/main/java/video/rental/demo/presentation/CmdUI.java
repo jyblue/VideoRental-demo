@@ -1,16 +1,18 @@
-package video.rental.demo;
+package video.rental.demo.presentation;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import video.rental.demo.application.Interactor;
+import video.rental.demo.domain.Rating;
+
 public class CmdUI {
 	private static Scanner scanner = new Scanner(System.in);
 
-	private Interactor interactor = new Interactor();
-	private Repository repository;
+	private Interactor interactor;
 	
-	public CmdUI(Repository repository) {
-		this.repository = repository;
+	public CmdUI(Interactor interactor) {
+		this.interactor = interactor;
 	}
 
 	public void start() {
@@ -56,7 +58,7 @@ public class CmdUI {
 		System.out.println("Enter customer code: ");
 		int customerCode = scanner.nextInt();
 
-		interactor.clearRentals(this, customerCode);
+		System.out.print(interactor.clearRentals(customerCode));
 	}
 
 	public void returnVideo() {
@@ -66,13 +68,13 @@ public class CmdUI {
 		System.out.println("Enter video title to return: ");
 		String videoTitle = scanner.next();
 
-		interactor.returnVideo(this, customerCode, videoTitle);
+		interactor.returnVideo(customerCode, videoTitle);
 	}
 
 	public void listVideos() {
 		System.out.println("List of videos");
 
-		interactor.listVideos(this);
+		interactor.listVideos();
 		
 		System.out.println("End of list");
 	}
@@ -80,7 +82,7 @@ public class CmdUI {
 	public void listCustomers() {
 		System.out.println("List of customers");
 
-		interactor.listCutomers(this);
+		interactor.listCutomers();
 		
 		System.out.println("End of list");
 	}
@@ -89,7 +91,7 @@ public class CmdUI {
 		System.out.println("Enter customer code: ");
 		int code = scanner.nextInt();
 
-		interactor.getCustomerReport(this, code);
+		interactor.getCustomerReport(code);
 	}
 
 	public void rentVideo() {
@@ -99,7 +101,7 @@ public class CmdUI {
 		System.out.println("Enter video title to rent: ");
 		String videoTitle = scanner.next();
 		
-		interactor.rentVideo(this, code, videoTitle);
+		interactor.rentVideo(code, videoTitle);
 	}
 
 	// Control coupling
@@ -114,7 +116,7 @@ public class CmdUI {
 			System.out.println("Enter customer birthday: ");
 			String dateOfBirth = scanner.next();
 
-			interactor.registerCustomer(this, name, code, dateOfBirth);
+			interactor.registerCustomer(name, code, dateOfBirth);
 		} else {
 			System.out.println("Enter video title to register: ");
 			String title = scanner.next();
@@ -136,7 +138,7 @@ public class CmdUI {
 			else if (videoRating == 3) rating = Rating.EIGHTEEN;
 			else throw new IllegalArgumentException("No such rating " + videoRating);
 			
-			interactor.registerVideo(this, title, videoType, priceCode, registeredDate, rating);
+			interactor.registerVideo(title, videoType, priceCode, registeredDate, rating);
 		}
 	}
 
@@ -155,9 +157,5 @@ public class CmdUI {
 		int command = scanner.nextInt();
 
 		return command;
-	}
-
-	Repository getRepository() {
-		return repository;
 	}
 }
